@@ -29,9 +29,21 @@ import com.fasterxml.jackson.databind.introspect.VisibilityChecker;
 @ActionReference(path = "Toolbars/File", position = 0)
 @Messages("CTL_CreaRepositorio=Crear Repositorio")
 public final class CreaRepositorio implements ActionListener {
-
+    
+    //Código que se ejecutará al hacer clic en el icono del plugin.
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+        //Introducimos por pantalla el nombre del repositorio que queremos crear
+        String repositorio = JOptionPane.showInputDialog("Nombre del repositorio");
+        try {
+            //Establecemos la conexión con github usando las credenciales del archivo .github
+            GitHub github = GitHub.connect();
+            //Creamos el repositorio
+            GHCreateRepositoryBuilder builder;
+            builder=github.createRepository(repositorio);
+            builder.create();
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
     }
 }

@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+AutoUpdate-Show-In-Client: true
+OpenIDE-Module: org.myorg.creareepositorio
+OpenIDE-Module-Localizing-Bundle: org/myorg/creareepositorio/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.0
+
